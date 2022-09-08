@@ -5,7 +5,7 @@ metadata:
   name: rabbitmq
   labels:
     name: rabbitmq
-  namespace: production
+  namespace: sock-shop-production
 spec:
   ports:
     # the port that this service should serve on

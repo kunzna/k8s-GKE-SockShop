@@ -5,7 +5,7 @@ metadata:
   labels:
     io.kompose.service: user-db-mongodata
   name: user-db-mongodata
-  namespace: production
+  namespace: sock-shop-production
 spec:
   accessModes:
   - ReadWriteOnce
@@ -21,7 +21,7 @@ metadata:
   labels:
     io.kompose.service: user-db
   name: user-db
-  namespace: production
+  namespace: sock-shop-production
 spec:
   replicas: 1
   selector:
@@ -79,7 +79,7 @@ metadata:
   labels:
     io.kompose.service: user-db
   name: user-db
-  namespace: production
+  namespace: sock-shop-production
 spec:
   ports:
   - name: "27017"

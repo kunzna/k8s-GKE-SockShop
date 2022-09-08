@@ -5,7 +5,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   replicas: 1
   selector:
@@ -49,7 +49,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   ports:
   - port: 3306
@@ -64,7 +64,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: production
+  namespace: sock-shop-production
 spec:
   replicas: 1
   selector:
@@ -108,7 +108,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: production
+  namespace: sock-shop-production
 spec:
   ports:
   - port: 3306

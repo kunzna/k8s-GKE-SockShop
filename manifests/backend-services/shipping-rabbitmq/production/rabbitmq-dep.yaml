@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rabbitmq
-  namespace: production
+  namespace: sock-shop-production
 spec:
   replicas: 1
   selector:
