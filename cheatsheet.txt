@@ -1,0 +1,51 @@
+== Lab 1
+gcloud config set compute/zone australia-southeast1-a
+gcloud container clusters create performgo2019 --image-type=cos_containerd --cluster-version=1.13
+kubectl get nodes
+
+== Lab 2
+git clone https://github.com/nodnarboen/HOT-k8s.git
+cd HOT-k8s
+./install-oneagent-operator.sh
+
+== Lab 3
+./setup-activegate.sh
+./setup-k8s-ui.sh
+
+== Lab 4
+./deploy-sockshop.sh
+vi ~/HOT-k8s/manifests/sockshop-app/production/front-end.yml
+kubectl create rolebinding serviceaccounts-view --clusterrole=view --	group=system:serviceaccounts:production --namespace=production
+kubectl create rolebinding serviceaccounts-view --clusterrole=view --	group=system:serviceaccounts:dev --namespace=dev
+kubectl describe svc front-end -n production
+
+== Lab 5
+vi ~/HOT-k8s/manifests/sockshop-app/production/front-end.yml
+
+env:
+- name: DT_TAGS
+  value: "product=sockshop"
+- name: DT_CUSTOM_PROP
+  value: "SERVICE_TYPE=FRONTEND"
+
+kubectl apply -f front-end.yml
+cd /HOT-k8s/
+./recycle-sockshop-frontend.sh
+
+== Lab 6
+k8s-{ProcessGroup:Kubernetes:pipeline.project}.{ProcessGroup:KubernetesNamespace}.{ProcessGroup:KubernetesContainerName}
+
+{Service:DetectedName}.{ProcessGroup:KubernetesNamespace}
+
+== Lab 7
+./deploy-canary.sh
+kubectl get pods -n production -o wide
+./recycle-sockshop-frontend.sh
+kubectl get deployments -n production -l tier=frontend
+
+== Troubleshooting
+kubectl -n dynatrace logs -p [pod name]
+kubectl -n dynatrace delete secret oneagent
+kubectl delete -n dynatrace oneagent --all
+kubectl delete -f https://github.com/Dynatrace/dynatrace-oneagent-operator/releases/latest/download/kubernetes.yaml
+kubectl delete pod -n production --all
