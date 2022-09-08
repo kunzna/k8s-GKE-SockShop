@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: payment
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   replicas: 1
   selector:
@@ -63,7 +63,7 @@ metadata:
   name: payment
   labels:
     app: payment
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   ports:
   - name: http

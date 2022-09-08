@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
-  namespace: production
+  namespace: sock-shop-production
 spec:
   replicas: 1
   selector:
@@ -63,7 +63,7 @@ metadata:
   name: catalogue
   labels:
     app: catalogue
-  namespace: production
+  namespace: sock-shop-production
 spec:
   ports:
   - name: http

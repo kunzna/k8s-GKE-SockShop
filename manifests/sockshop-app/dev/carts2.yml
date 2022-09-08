@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: carts
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   replicas: 1
   selector:
@@ -71,7 +71,7 @@ metadata:
   name: carts
   labels:
     app: carts
-  namespace: dev
+  namespace: sock-shop-dev
 spec:
   ports:
   - name: http
